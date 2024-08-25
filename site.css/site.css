@@ -1,0 +1,38 @@
+/* Import Google Fonts (example) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Apply the font family to the entire document */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Container styling */
+#container {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+/* Headings styling */
+h1, h2, h3, h4 {
+    background-color: #C51162; /* Darker magenta background color */
+    color: #FFFFFF; /* White font color */
+    border: 1px solid #8E0038; /* Even darker magenta border */
+    padding: 10px;
+}
+
+/* Anchor (link) styling */
+a {
+    color: #C51162; /* Darker magenta color for links */
+    text-decoration: none;
+}
+
+/* Anchor (link) hover state */
+a:hover {
+    color: #8E0038; /* Even darker shade of magenta for hover */
+}
+
+/* Anchor (link) visited state */
+a:visited {
+    color: #6A1B2F; /* Darker shade of magenta for visited links */
+}
