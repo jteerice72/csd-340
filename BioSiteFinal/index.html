@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Olivia Desjardins' Website">
+    <meta name="keywords" content="Medieval Art History, History, Bird Watching">
+    <meta name="author" content="Olivia Desjardins, Jessica Hall">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Olivia Desjardins</title>
+    
+    <script>
+        function toggleCaption() {
+            var caption = document.getElementById('caption');
+            if (caption.style.display === 'none') {
+                caption.style.display = 'block';
+            } else {
+                caption.style.display = 'none';
+            }
+        }
+
+        // hide caption on page load
+        window.onload = function() {
+            document.getElementById('caption').style.display = 'none';
+        };
+    </script>
+</head>
+<body>
+    <div id="container">
+        <!-- Header -->
+        <header>
+            <img class="background-image" src="header-image.jpg" alt="Bird on a branch with a medieval manuscript in the background">
+            <div class="text-container">
+                <h1>Welcome to Olivia Desjardins' World</h1>
+            </div>
+        </header>
+        
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+            </ul>
+        </nav>
+        
+       <!-- Main Content -->
+<main>
+    <section>
+        <h2>All about Olivia Desjardins</h2>
+        <p>A passionate Medieval Art History student.</p>
+    </section>
+
+    <!-- Picture -->
+    <section>
+        <h2>Can you guess what this art depicts?</h2>
+        <img src="black death.jpg" alt="Black Death" style="width:100%;max-width:600px;">
+        <figcaption id="caption">This art depicts the bubonic plague.</figcaption>
+        <button type="button" onclick="toggleCaption()">Toggle Answer</button>
+    </section>
+
+    <!-- Olivia's analysis -->
+    <section>
+        <p>Olivia's love of medieval art extends beyond merely appreciating the pieces' exquisite aesthetics. She is always analyzing the layers of symbolism, cultural context, and spiritual value that these historical works express in an effort to uncover the deeper meanings contained inside each piece. Olivia views every work as a window into the thoughts and emotions of the people who lived at that time, whether it is through the elaborate religious imagery or the portrayals of typical medieval life. Her quest to unearth these obscure stories motivates her research.</p>
+    </section>
+</main>
+
+        
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Olivia Desjardins. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

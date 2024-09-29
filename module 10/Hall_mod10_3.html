@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .mainImage {
+            width: 300px;
+            height: auto;
+            border: 2px solid #ecf0f1;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .mainImage:hover {
+            transform: scale(1.05);
+        }
+        img {
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin: 10px;
+        }
+        img:hover {
+            transform: scale(1.1);
+        }
+        .caption {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #ecf0f1;
+        }
+    </style>
+    <script>
+        function displayImage(imageFile, captionText) {
+            const largerImage = document.getElementById("mainImage");
+            largerImage.src = imageFile;
+
+            const caption = document.getElementById("caption");
+            caption.innerText = captionText;
+
+            //hover image for main image
+            largerImage.setAttribute('data-original', imageFile);
+            largerImage.setAttribute('data-hover', imageFile.replace('.jpg', '_hover.jpg'));
+            largerImage.src = imageFile;
+        }
+
+        function changeHoverImage(imageElement, hoverImage) {
+            imageElement.src = hoverImage;
+        }
+
+        function resetImage(imageElement, originalImage) {
+            imageElement.src = originalImage;
+        }
+        
+        function hoverMainImage() {
+            const largerImage = document.getElementById("mainImage");
+            const hoverImage = largerImage.getAttribute('data-hover');
+            largerImage.src = hoverImage;
+        }
+
+        function resetMainImage() {
+            const largerImage = document.getElementById("mainImage");
+            const originalImage = largerImage.getAttribute('data-original');
+            largerImage.src = originalImage;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Assignment 10.3: JavaScript - Part 2</h1>
+    <img id="mainImage" src="uhhh.jpg" alt="Click !" class="mainImage" aria-describedby="caption"
+         onmouseover="hoverMainImage()" onmouseout="resetMainImage()">
+    <p id="caption" class="caption">Click on a character to learn more</p>
+
+    <h2>Hover on the pictures below to see other depictions of these characters!</h2>
+
+    <div>
+        <img src="barenziah.jpg" alt="Barenziah" 
+             onmouseover="changeHoverImage(this, 'barenziah_hover.jpg');" 
+             onmouseout="resetImage(this, 'barenziah.jpg');"
+             onclick="displayImage('barenziah.jpg', 'Queen Barenziah is one of the most famous and influential Dunmer to ever live. She lived through the entire Third Era, and shaped much of it herself. She helped to end the reign of the false Emperor, Jagar Tharn.')" />
+
+        <img src="sheo.jpg" alt="Sheogorath" 
+             onmouseover="changeHoverImage(this, 'sheo_hover.jpg');" 
+             onmouseout="resetImage(this, 'sheo.jpg');"
+             onclick="displayImage('sheo.jpg', 'Sheogorath is the Daedric Prince of Madness, known for his unpredictable behavior and whimsical nature, embodying the chaotic aspect of existence.')" />
+
+        <img src="saint_jiub.jpg" alt="Saint Jiub" 
+             onmouseover="changeHoverImage(this, 'saint_jiub_hover.jpg');" 
+             onmouseout="resetImage(this, 'saint_jiub.jpg');"
+             onclick="displayImage('saint_jiub.jpg', 'Jiub was originally a freelance assassin, who murdered to pay for his skooma addiction. After his imprisonment, wanting to help the people of Morrowind, he went on to eradicate cliff racers and was eventually made a saint.')" />
+    </div>
+
+    <div>
+        <p>Click an image to learn about notable characters in The Elder Scrolls universe!</p>
+    </div>
+
+</body>
+</html>
