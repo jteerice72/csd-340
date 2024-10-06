@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSD 340 Web Development with HTML and CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 5px;
+            width: 300px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            margin-right: 5px;
+        }
+        hr {
+            margin: 20px 0;
+        }
+        .item-list {
+            text-align: left;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        var itemList = [];
+
+        function addItem() {
+            var item = document.getElementById("inputItem").value;
+            if (item) {
+                itemList.push(item);
+                alert("Added: " + item);
+                document.getElementById("inputItem").value = "";
+            } else {
+                alert("Please enter an item.");
+            }
+        }
+
+        function deleteLastItem() {
+            if (itemList.length > 0) {
+                var removedItem = itemList.pop();
+                alert("Deleted: " + removedItem);
+            } else {
+                alert("No items to delete.");
+            }
+        }
+
+        function displayItems() {
+            var displayArea = document.getElementById("displayArea");
+            displayArea.innerHTML = ""; //clear previous entries
+            if (itemList.length > 0) {
+                for (var i = 0; i < itemList.length; i++) {
+                    displayArea.innerHTML += "Item " + (i + 1) + " = " + itemList[i] + "<br>";
+                }
+            } else {
+                displayArea.innerHTML = "No items in the list.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Assignment 11.2: JavaScript - Part 3</h1>
+        <p>This is an interactive To Do List. Type in your first item in the text book, then click Add. Click the Display button to see current items in the list. Click on delete last entry to remove the last entry.</p>
+        
+        <input type="text" id="inputItem" placeholder="Enter an item">
+        <button onclick="addItem()">Add</button>
+        <button onclick="deleteLastItem()">Delete Last Entry</button>
+        <button onclick="displayItems()">Display</button>
+
+        <hr>
+
+        <div id="displayArea" class="item-list"></div>
+    </div>
+</body>
+</html>
