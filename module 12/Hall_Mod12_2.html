@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Assignment 12.2: JavaScript - Part 4">
+    <meta name="keywords" content="Web Development, HTML, CSS, JavaScript, Assignment">
+    <meta name="author" content="Jessica Hall">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="Hall_Mod12_2.css">
+
+    <!-- Document Title -->
+    <title>CSD 340 Web Development with HTML and CSS</title>
+</head>
+<body>
+    <!-- Main Container Div -->
+    <div id="container">
+        <h1>Assignment 12.2: JavaScript - Part 4</h1>
+        
+        <div style="display: flex; justify-content: space-between;">
+            <div style="width: 45%;">
+                <h3>Top 10 Favorite Books</h3>
+                <ol id="book-list">
+                    <!-- Book titles inserted here by Javascript -->
+                </ol>
+                <!-- buttons to sort array -->
+                <button onclick="sortBooksAsc()">Top to Bottom</button>
+                <button onclick="sortBooksDesc()">Bottom to Top</button>
+            </div>
+            
+            <!-- Right Div -->
+            <div style="width: 45%;">
+                <h3>5 Things I Learned Since the Course Started</h3>
+                <ul>
+                    <li>F Pattern</li>
+                    <li>CSS Integration</li>
+                    <li>Validating HTML</li>
+                    <li>Adding Fonts</li>
+                    <li>Borders</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Last Div -->
+        <div style="width: 100%; margin-top: 60px;">
+            <a href="../index.html" class="back-link">Back to Landing Page</a>
+        </div>
+    </div>
+
+    <!-- Javscript -->
+    <script>
+        //array of book titles
+        const books = [
+            "Tender is the Flesh",
+            "Lapvona",
+            "Come Closer",
+            "Uzumaki",
+            "A Thousand Splendid Suns",
+            "Penpal",
+            "Invisible Monsters",
+            "Maeve Fly",
+            "Perfume",
+            "The Exorcist's House"
+        ];
+
+        //ascending order
+        function sortBooksAsc() {
+            let bookList = document.getElementById('book-list');
+            bookList.innerHTML = ''; //clear existing list
+            books.sort().forEach(book => {
+                let li = document.createElement('li');
+                li.textContent = book;
+                bookList.appendChild(li);
+            });
+        }
+
+        //descending order
+        function sortBooksDesc() {
+            let bookList = document.getElementById('book-list');
+            bookList.innerHTML = ''; //clear existing list
+            books.sort().reverse().forEach(book => {
+                let li = document.createElement('li');
+                li.textContent = book;
+                bookList.appendChild(li);
+            });
+        }
+
+        //display of books
+        window.onload = sortBooksAsc;
+    </script>
+</body>
+</html>
